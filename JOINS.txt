@@ -1,0 +1,57 @@
+JOINS:
+INNER JOIN, 2)LEFT JOIN , 3)RIGHT JOIN, 4)FULL JOIN 
+
+
+INNER JOIN:    
+
+	SELECT customers.customerName,orders.orderId
+		FROM customers 
+		INNER JOIN orders
+		ON customers.customerId = orders.customerId
+		ORDER BY customers.customerName;
+
+
+
+
+
+LEFT JOIN:
+
+	SELECT Customers.CustomerName, Orders.OrderID
+		FROM Customers
+		LEFT JOIN Orders
+		ON Customers.CustomerID=Orders.CustomerID
+		ORDER BY Customers.CustomerName;
+
+RIGHT JOIN:
+
+
+	SELECT Orders.OrderID, Employees.FirstName
+		FROM Orders
+		RIGHT JOIN Employees
+		ON Orders.EmployeeID=Employees.EmployeeID
+		ORDER BY Orders.OrderID;
+
+
+
+FULL JOIN:
+
+	SELECT Customers.CustomerName, Orders.OrderID
+		FROM Customers
+		FULL OUTER JOIN Orders
+		ON Customers.CustomerID=Orders.CustomerID
+		ORDER BY Customers.CustomerName;
+
+UNION:
+
+	SELECT City FROM Customers
+		UNION ALL
+		SELECT City FROM Suppliers
+		ORDER BY City;
+
+	SELECT City, Country FROM Customers
+		WHERE Country='Germany'
+		UNION ALL
+		SELECT City, Country FROM Suppliers
+		WHERE Country='Germany'
+		ORDER BY City;
+
